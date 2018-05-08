@@ -4,13 +4,13 @@
 
     <groupId>maven-test</groupId>
     <artifactId>maven-test</artifactId>
-    <version>2.2</version>
+    <version>2.3-SNAPSHOT</version>
 
     <scm>
         <connection>scm:git:https://github.com/skalva404/maven-test.git</connection>
         <url>https://github.com/skalva404/maven-test.git</url>
         <developerConnection>scm:git:https://github.com/skalva404/maven-test.git</developerConnection>
-        <tag>2.2</tag>
+        <tag>${project.version}</tag>
     </scm>
 
     <build>
