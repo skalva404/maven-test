@@ -10,7 +10,7 @@
         <connection>scm:git:https://github.com/skalva404/maven-test.git</connection>
         <url>https://github.com/skalva404/maven-test.git</url>
         <developerConnection>scm:git:https://github.com/skalva404/maven-test.git</developerConnection>
-        <tag>${project.version}</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <build>
