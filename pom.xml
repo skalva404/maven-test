@@ -30,7 +30,7 @@
                         <manifest>
                             <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                             <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-                            <mainClass>HelloWorld</mainClass>
+                            <mainClass>kalva.learnings.maven.HelloWorld</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
