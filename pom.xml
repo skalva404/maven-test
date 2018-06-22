@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>kalva.learnings.maven</groupId>
@@ -12,6 +13,23 @@
         <developerConnection>scm:git:https://github.com/skalva404/maven-test.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
+
+    <properties>
+        <install.dir>/opt/kalva/maven-test</install.dir>
+        <jvmArguments>
+            -Xms124m -Xmx256m -XX:+AggressiveOpts -XX:MaxMetaspaceSize=256m
+            -XX:+UseCMSInitiatingOccupancyOnly -XX:CMSInitiatingOccupancyFraction=70
+            -XX:+ScavengeBeforeFullGC -XX:+CMSScavengeBeforeRemark
+            -XX:+UseFastAccessorMethods
+            -XX:+HeapDumpOnOutOfMemoryError
+            -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=9001
+            -Dcom.sun.management.jmxremote.ssl=false
+            -Dcom.sun.management.jmxremote.local.only=false
+            -Dcom.sun.management.jmxremote.authenticate=false
+            -Xnoagent -Djava.compiler=NONE -Xdebug
+            -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5001
+        </jvmArguments>
+    </properties>
 
     <build>
         <plugins>
@@ -30,7 +48,7 @@
                         <manifest>
                             <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                             <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-                            <mainClass>kalva.learnings.maven.HelloWorld</mainClass>
+                            <mainClass>kalva.learnings.maven.MavenTest</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
@@ -56,6 +74,70 @@
                     <tagNameFormat>@{project.version}</tagNameFormat>
                     <remoteTagging>false</remoteTagging>
                 </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>jdeb</artifactId>
+                <groupId>org.vafer</groupId>
+                <executions>
+                    <execution>
+                        <id>MavenTest</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jdeb</goal>
+                        </goals>
+                        <configuration>
+                            <installDir>${install.dir}</installDir>
+                            <controlDir>src/deb</controlDir>
+                            <deb>${project.build.directory}/maven-test-${project.version}.deb</deb>
+                            <dataSet>
+                                <data>
+                                    <src>target/apache-flume-1.8.0-bin</src>
+                                    <type>directory</type>
+                                    <mapper>
+                                        <type>perm</type>
+                                        <prefix>${install.dir}</prefix>
+                                        <filemode>755</filemode>
+                                    </mapper>
+                                </data>
+                            </dataSet>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>appassembler-maven-plugin</artifactId>
+                <version>2.0.0</version>
+                <configuration>
+                    <includeConfigurationDirectoryInClasspath>true
+                    </includeConfigurationDirectoryInClasspath>
+                    <configurationDirectory>
+                        ${install.dir}
+                    </configurationDirectory>
+                    <target>${project.build.directory}/appassembler</target>
+                    <generateRepository>true</generateRepository>
+                    <repositoryLayout>flat</repositoryLayout>
+                    <repositoryName>lib</repositoryName>
+                    <programs>
+                        <program>
+                            <mainClass>kalva.learnings.maven.MavenTest</mainClass>
+                            <id>MavenTest</id>
+                        </program>
+                    </programs>
+                    <platforms>
+                        <platform>all</platform>
+                    </platforms>
+                    <extraJvmArguments>${jvmArguments}</extraJvmArguments>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>generate-command-line</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>assemble</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
