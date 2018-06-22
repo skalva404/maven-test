@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>maven-test</groupId>
+    <groupId>kalva.learnings.maven</groupId>
     <artifactId>maven-test</artifactId>
-    <version>2.5-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
 
     <scm>
-        <connection>scm:git:https://github.com/skalva404/maven-test.git</connection>
         <url>https://github.com/skalva404/maven-test.git</url>
+        <connection>scm:git:https://github.com/skalva404/maven-test.git</connection>
         <developerConnection>scm:git:https://github.com/skalva404/maven-test.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
@@ -16,8 +17,15 @@
     <build>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
-                <version>3.0.0</version>
                 <configuration>
                     <archive>
                         <manifest>
@@ -42,7 +50,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
-                <version>2.5.3</version>
                 <configuration>
                     <goals>pre-integration-test</goals>
                     <preparationGoals>package</preparationGoals>
@@ -53,4 +60,18 @@
             </plugin>
         </plugins>
     </build>
+
+    <repositories>
+        <repository>
+            <id>myMavenRepo.read</id>
+            <url>https://mymavenrepo.com/repo/nAlslojMB5Wg1dnRZma6/</url>
+        </repository>
+    </repositories>
+
+    <distributionManagement>
+        <repository>
+            <id>myMavenRepo.write</id>
+            <url>https://mymavenrepo.com/repo/kfG1boDXh7NgLkDxxoR3/</url>
+        </repository>
+    </distributionManagement>
 </project>
