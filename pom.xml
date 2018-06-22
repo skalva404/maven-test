@@ -4,7 +4,7 @@
 
     <groupId>kalva.learnings.maven</groupId>
     <artifactId>maven-test</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.3-SNAPSHOT</version>
 
     <scm>
         <url>https://github.com/skalva404/maven-test.git</url>
