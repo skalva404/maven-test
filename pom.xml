@@ -133,28 +133,3 @@
         </repository>
     </distributionManagement>
 </project>
-
-
-        <!--<plugin>-->
-        <!--<artifactId>maven-assembly-plugin</artifactId>-->
-        <!--<configuration>-->
-        <!--<archive>-->
-        <!--<manifest>-->
-        <!--<addDefaultImplementationEntries>true</addDefaultImplementationEntries>-->
-        <!--<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>-->
-        <!--<mainClass>kalva.learnings.maven.MavenTest</mainClass>-->
-        <!--</manifest>-->
-        <!--</archive>-->
-        <!--<descriptorRefs>-->
-        <!--<descriptorRef>jar-with-dependencies</descriptorRef>-->
-        <!--</descriptorRefs>-->
-        <!--</configuration>-->
-        <!--<executions>-->
-        <!--<execution>-->
-        <!--<phase>package</phase>-->
-        <!--<goals>-->
-        <!--<goal>single</goal>-->
-        <!--</goals>-->
-        <!--</execution>-->
-        <!--</executions>-->
-        <!--</plugin>-->
