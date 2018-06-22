@@ -1,0 +1,8 @@
+Package: maven-test
+Version: [[version]]
+Section: misc
+Priority: low
+Architecture: all
+Depends:
+Description: maven-test
+Maintainer: skalva404@gmail.com

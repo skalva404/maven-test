@@ -42,69 +42,6 @@
                 </configuration>
             </plugin>
             <plugin>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-                            <mainClass>kalva.learnings.maven.MavenTest</mainClass>
-                        </manifest>
-                    </archive>
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-release-plugin</artifactId>
-                <configuration>
-                    <goals>pre-integration-test</goals>
-                    <preparationGoals>package</preparationGoals>
-                    <allowTimestampedSnapshots>true</allowTimestampedSnapshots>
-                    <tagNameFormat>@{project.version}</tagNameFormat>
-                    <remoteTagging>false</remoteTagging>
-                </configuration>
-            </plugin>
-            <plugin>
-                <artifactId>jdeb</artifactId>
-                <groupId>org.vafer</groupId>
-                <executions>
-                    <execution>
-                        <id>MavenTest</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>jdeb</goal>
-                        </goals>
-                        <configuration>
-                            <installDir>${install.dir}</installDir>
-                            <controlDir>src/deb</controlDir>
-                            <deb>${project.build.directory}/maven-test-${project.version}.deb</deb>
-                            <dataSet>
-                                <data>
-                                    <src>target/apache-flume-1.8.0-bin</src>
-                                    <type>directory</type>
-                                    <mapper>
-                                        <type>perm</type>
-                                        <prefix>${install.dir}</prefix>
-                                        <filemode>755</filemode>
-                                    </mapper>
-                                </data>
-                            </dataSet>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>appassembler-maven-plugin</artifactId>
                 <version>2.0.0</version>
@@ -139,6 +76,46 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <artifactId>jdeb</artifactId>
+                <groupId>org.vafer</groupId>
+                <executions>
+                    <execution>
+                        <id>MavenTest</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jdeb</goal>
+                        </goals>
+                        <configuration>
+                            <installDir>${install.dir}</installDir>
+                            <controlDir>src/deb</controlDir>
+                            <deb>${project.build.directory}/maven-test-${project.version}.deb</deb>
+                            <dataSet>
+                                <data>
+                                    <src>target/appassembler</src>
+                                    <type>directory</type>
+                                    <mapper>
+                                        <type>perm</type>
+                                        <prefix>${install.dir}</prefix>
+                                        <filemode>755</filemode>
+                                    </mapper>
+                                </data>
+                            </dataSet>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <configuration>
+                    <goals>pre-integration-test</goals>
+                    <preparationGoals>package</preparationGoals>
+                    <allowTimestampedSnapshots>true</allowTimestampedSnapshots>
+                    <tagNameFormat>@{project.version}</tagNameFormat>
+                    <remoteTagging>false</remoteTagging>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
@@ -156,3 +133,28 @@
         </repository>
     </distributionManagement>
 </project>
+
+
+        <!--<plugin>-->
+        <!--<artifactId>maven-assembly-plugin</artifactId>-->
+        <!--<configuration>-->
+        <!--<archive>-->
+        <!--<manifest>-->
+        <!--<addDefaultImplementationEntries>true</addDefaultImplementationEntries>-->
+        <!--<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>-->
+        <!--<mainClass>kalva.learnings.maven.MavenTest</mainClass>-->
+        <!--</manifest>-->
+        <!--</archive>-->
+        <!--<descriptorRefs>-->
+        <!--<descriptorRef>jar-with-dependencies</descriptorRef>-->
+        <!--</descriptorRefs>-->
+        <!--</configuration>-->
+        <!--<executions>-->
+        <!--<execution>-->
+        <!--<phase>package</phase>-->
+        <!--<goals>-->
+        <!--<goal>single</goal>-->
+        <!--</goals>-->
+        <!--</execution>-->
+        <!--</executions>-->
+        <!--</plugin>-->
