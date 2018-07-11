@@ -4,7 +4,7 @@
 
     <groupId>kalva.learnings.maven</groupId>
     <artifactId>maven-test</artifactId>
-    <version>1.0.21-SNAPSHOT</version>
+    <version>1.0.22-SNAPSHOT</version>
 
     <properties>
         <install.dir>/opt/kalva/maven-test</install.dir>
