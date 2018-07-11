@@ -4,7 +4,7 @@
 
     <groupId>kalva.learnings.maven</groupId>
     <artifactId>maven-test</artifactId>
-    <version>1.0.18-SNAPSHOT</version>
+    <version>1.0.21-SNAPSHOT</version>
 
     <properties>
         <install.dir>/opt/kalva/maven-test</install.dir>
@@ -129,7 +129,8 @@
     <distributionManagement>
         <repository>
             <id>myMavenRepo.write</id>
-            <url>https://mymavenrepo.com/repo/kfG1boDXh7NgLkDxxoR3/</url>
+            <url>file:///Users/sunilkumar.kalva/workspace/learnings/maven-test/repos/</url>
+            <!--<url>https://mymavenrepo.com/repo/kfG1boDXh7NgLkDxxoR3/</url>-->
         </repository>
     </distributionManagement>
 
