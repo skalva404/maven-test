@@ -123,8 +123,8 @@
     <scm>
         <tag>HEAD</tag>
         <url>https://github.com/skalva404/maven-test.git</url>
-        <connection>scm:git:ssh://git@github.com/skalva404/springboot-docker.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com/skalva404/springboot-docker.git</developerConnection>
+        <connection>scm:git:ssh://git@github.com/skalva404/maven-test.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/skalva404/maven-test.git</developerConnection>
     </scm>
 
     <distributionManagement>
