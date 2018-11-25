@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>kalva.learnings.maven</groupId>
@@ -126,20 +127,37 @@
         <developerConnection>scm:git:https://github.com/skalva404/maven-test.git</developerConnection>
     </scm>
 
-    <repositories>
-        <repository>
-            <id>myMavenRepo.read</id>
-            <url>https://mymavenrepo.com/repo/nAlslojMB5Wg1dnRZma6/</url>
-        </repository>
-    </repositories>
-
     <distributionManagement>
         <repository>
-            <id>myMavenRepo.write</id>
-            <url>file:///Users/sunilkumar.kalva/workspace/learnings/maven-test/repos/</url>
-            <!--<url>https://mymavenrepo.com/repo/kfG1boDXh7NgLkDxxoR3/</url>-->
+            <id>springboot-releases</id>
+            <name>springboot-releases</name>
+            <url>
+                http://springboot:springboot@localhost:8081/nexus/content/repositories/maven-test-releases
+            </url>
         </repository>
+        <snapshotRepository>
+            <id>springboot-snapshots</id>
+            <name>springboot-snapshots</name>
+            <url>
+                http://springboot:springboot@localhost:8081/nexus/content/repositories/maven-test-snapshots
+            </url>
+        </snapshotRepository>
     </distributionManagement>
+
+    <!--<repositories>-->
+    <!--<repository>-->
+    <!--<id>myMavenRepo.read</id>-->
+    <!--<url>https://mymavenrepo.com/repo/nAlslojMB5Wg1dnRZma6/</url>-->
+    <!--</repository>-->
+    <!--</repositories>-->
+
+    <!--<distributionManagement>-->
+    <!--<repository>-->
+    <!--<id>myMavenRepo.write</id>-->
+    <!--<url>file:///Users/sunilkumar.kalva/workspace/learnings/maven-test/repos/</url>-->
+    <!--&lt;!&ndash;<url>https://mymavenrepo.com/repo/kfG1boDXh7NgLkDxxoR3/</url>&ndash;&gt;-->
+    <!--</repository>-->
+    <!--</distributionManagement>-->
 
     <!--<distributionManagement>-->
     <!--<repository>-->
