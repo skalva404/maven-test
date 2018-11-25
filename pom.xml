@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>kalva.learnings.maven</groupId>
     <artifactId>maven-test</artifactId>
-    <version>3.0.7-SNAPSHOT</version>
+    <version>3.0.7</version>
 
     <properties>
         <install.dir>/opt/kalva/maven-test</install.dir>
@@ -121,7 +120,7 @@
     </build>
 
     <scm>
-        <tag>HEAD</tag>
+        <tag>maven-test-3.0.7</tag>
         <url>https://github.com/skalva404/maven-test.git</url>
         <connection>scm:git:ssh://git@github.com/skalva404/maven-test.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/skalva404/maven-test.git</developerConnection>
